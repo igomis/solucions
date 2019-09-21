@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Desarrollo Web con PHP 7 y MVC</title>
-    <style>
-        table, tr, td, th{
-            border: 1px solid black;
-        }
-    </style>
-</head>
-<body>
-    <h1>Tema 1: Actividad 3</h1>
 <?php
+require dirname(__FILE__) . "/../vendor/autoload.php";
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
+
 
     // Dades inicials
     $nombres = [
@@ -46,7 +39,23 @@
 
     //operacions amb $numeros
     $suma = array_sum($numeros);
+
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Desarrollo Web con PHP 7 y MVC</title>
+    <style>
+        table, tr, td, th{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tema 2: Actividad Arrays</h1>
+
 
     <p>Número de nombres: <?= $numNombres ?></p>
     <p>Nombres inicial: <?= $strNombres ?></p>
