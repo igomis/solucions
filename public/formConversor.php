@@ -39,11 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1><mark>Ejercicio Realitza un conversor de pesetes a euros i a l’inreves. Utilitza funcions per fer el càlcul.</mark></h1><br>
     <p>
         <?php
-            if (isset($convertida))
-                echo $_POST['cantidad'].' ';
-                echo ($_POST['moneda']=='euros')?' €':' pts.';
-                echo ' son '.$convertida;
-                echo ($_POST['moneda']=='euros')?' pts.':' €';
+            if (isset($convertida)) {
+                echo $_POST['cantidad'] . ' ';
+                echo ($_POST['moneda'] == 'euros') ? ' €' : ' pts.';
+                echo ' son ' . $convertida;
+                echo ($_POST['moneda'] == 'euros') ? ' pts.' : ' €';
+            }
         ?>
     </p>
     <form method="POST">
