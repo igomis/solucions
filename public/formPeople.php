@@ -13,14 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Hobbies = $_POST["hobbies"];
     $nombre_imagen = $_FILES["imagen"]["name"];
     $tipo_imagen = $_FILES["imagen"]["type"];
-    $tamanyo_imagen = $_FILES["imagen"]["size"];
     $ruta = "images/";
 
     if ($tipo_imagen != "image/jpeg" && $tipo_imagen != "image/png" && $tipo_imagen != "image/gif") $error = "Sube una imagen de tipo: jpegs, pngs o gifs...";
     if ($Edad < 0 || $Edad > 100) $error = 'Datos incorrectos, por favor, introduce una edad correcta.';
-    if (strlen($DNI) == 9) $error = "Datos incorrectos, por favor, introduce DNI correcto.";
+    if (strlen($DNI) != 9) $error = "Datos incorrectos, por favor, introduce DNI correcto.";
     if (!isset($error)) {
-        $carpeta_destino = $_SERVER["DOCUMENT_ROOT"] . "/";
         move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta . $nombre_imagen);
         $personas = array(
             array('DNI' => $DNI, 'Nombre' => $Nombre, 'Edad' => $Edad, 'Sexo' => $Sexo, 'Hoobies' => $Hobbies, 'Imagen' => $nombre_imagen),
