@@ -16,8 +16,6 @@
         }
     },
     "require": {
-        "filp/whoops": "^2.3",
-        "firephp/firephp-core": "dev-master",
-        "peridot-php/peridot": "^1.19"
+        "filp/whoops": "^2.3"
     }
 }
