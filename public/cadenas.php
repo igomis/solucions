@@ -11,61 +11,63 @@ $whoops->register();
     <title>Desarrollo Web con PHP 7 y MVC</title>
 </head>
 <body>
-    <h1>Tema 1: Actividad 2</h1>
+    <h1>Tema 2: Activitat Cadenes</h1>
 <?php
+    //variables inicials
     $nombre = trim($_GET['nombre'] ?? 'Alejandro', '/');
-    $letra = 'a';
+    $prefijo = $_GET['prefijo'] ?? null;
+    $letra = 'i';
+    $url = 'http://alex:password@hostname:9090/path?arg=value';
+
+    // calcul de variables
+
     $longitudNombre = strlen($nombre);
     $nombreMayusculas = strtoupper($nombre);
     $nombreMinusculas = strtolower($nombre);
-    $numApariciones = substr_count($nombre, $letra);
-    $numApariciones += substr_count($nombre, strtoupper($letra));
+    $numApariciones = substr_count($nombreMayusculas, strtoupper($letra));
     $posicion = stripos($nombre, $letra);
     $nombreSustituido = str_ireplace('o', '0', $nombre);
 
-    $url = 'http://alex:password@hostname:9090/path?arg=value';
+    // Provar funcio parse_url
+
     $protocolo = parse_url($url, PHP_URL_SCHEME);
     $usuario = parse_url($url,  PHP_URL_USER);
     $path = parse_url($url,  PHP_URL_PATH);
     $query = parse_url($url,  PHP_URL_QUERY);
 ?>
-    <p><?= $nombre ?></p>
-    <p>Longitud del nombre: <?= $longitudNombre?></p>
-    <p>Nombre en mayúsculas: <?= $nombreMayusculas?></p>
-    <p>Nombre en minúsculas: <?= $nombreMinusculas ?></p>";
+    <p>El teu nom és: <?= $nombre ?></p>
+    <p>La Longitud del nom és: <?= $longitudNombre?></p>
+    <p>Nom en majúscules: <?= $nombreMayusculas?></p>
+    <p>Nom en minúscules: <?= $nombreMinusculas ?></p>
 
 <?php
-    if (isset($_GET['prefijo']))
+    if ($prefijo)
     {
-        $prefijo = $_GET['prefijo'];
         $pos = strpos($nombre, $prefijo);
         if ($pos === 0)
-            echo "<p>El nombre $nombre comienza por $prefijo</p>";
+            echo "<p>El nom $nombre comença per $prefijo</p>";
         else
-            echo "<p>El nombre $nombre no comienza por $prefijo</p>";
-    }
+            echo "<p>El nom $nombre no comença per $prefijo</p>";
+    } else echo "<p>No hi ha prefixe </p>";
 ?>
 
-    <p>El nombre contiene <?= $numApariciones ?> veces la letra <?= $letra ?> (mayúscula o minúscula)</p>
+    <p>El nom conté <?= $numApariciones ?> voltes la lletra <?= $letra ?> (majúscula o minúscula)</p>
 
 <?php
 
     if ($posicion === false)
-        echo "<p>El nombre $nombre no contiene la letra $letra (mayúscula ni minúscula)</p>";
+        echo "<p>El nom $nombre no conté la letra $letra (ni majúscula ni minúscula)</p>";
     else
-        echo "<p>La posición de la primera $letra (mayúscula o minúscula) en $nombre es $posicion </p>";
+        echo "<p>La posició de la primera $letra (majúscula o minúscula) en $nombre és $posicion </p>";
 ?>
 
-    <p>Al sustituir las o por 0 el nombre queda así <?= $nombreSustituido ?></p>
-
-
-
+    <p>Al substituir les o per 0 el nom queda així <?= $nombreSustituido ?></p>
+    <hr/>
     <ul>
-        <li>Protocolo: <?= $protocolo ?></li>
-        <li>Usuario: <?= $usuario ?></li>
+        <li>Protocol: <?= $protocolo ?></li>
+        <li>Usuari: <?= $usuario ?></li>
         <li>Path: <?= $path ?></li>
         <li>Querystring: <?= $query ?></li>
     </ul>
-?>
 </body>
 </html>
