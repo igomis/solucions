@@ -1,0 +1,24 @@
+{
+    "autoload":{
+        "psr-4":{
+            "Ejercicios\\": "src/"
+        },
+        "files": [
+            "bootstrap/helpers.php",
+            "bootstrap/errorsReport.php"
+        ]
+    },
+    "require-dev": {
+        
+    },
+    "autoload-dev": {
+        "psr-4":{
+            "Tests\\" : "tests/"
+        }
+    },
+    "require": {
+        "filp/whoops": "^2.3",
+        "firephp/firephp-core": "dev-master",
+        "peridot-php/peridot": "^1.19"
+    }
+}
