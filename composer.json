@@ -4,8 +4,7 @@
             "Ejercicios\\": "src/"
         },
         "files": [
-            "bootstrap/helpers.php",
-            "bootstrap/errorsReport.php"
+            "helpers/myHelpers.php"
         ]
     },
     "require-dev": {
