@@ -15,9 +15,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipo_imagen = $_FILES["imagen"]["type"];
     $ruta = "images/";
 
-    if ($tipo_imagen != "image/jpeg" && $tipo_imagen != "image/png" && $tipo_imagen != "image/gif") $error = "Sube una imagen de tipo: jpegs, pngs o gifs...";
-    if ($Edad < 0 || $Edad > 100) $error = 'Datos incorrectos, por favor, introduce una edad correcta.';
-    if (strlen($DNI) != 9) $error = "Datos incorrectos, por favor, introduce DNI correcto.";
+    try {
+        if ($tipo_imagen != "image/jpeg" && $tipo_imagen != "image/png" && $tipo_imagen != "image/gif") throw new Exception("Sube una imagen de tipo: jpegs, pngs o gifs...");
+        if ($Edad < 0 || $Edad > 100) throw new Exception("Datos incorrectos, por favor, introduce una edad correcta.");
+        if (strlen($DNI) != 9) throw new Exception( "Datos incorrectos, por favor, introduce DNI correcto.");
+    }
+    catch(Exception $e){
+        $error = $e->getMessage();
+    };
     if (!isset($error)) {
         move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta . $nombre_imagen);
         $personas = array(

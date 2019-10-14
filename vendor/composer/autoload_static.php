@@ -7,8 +7,6 @@ namespace Composer\Autoload;
 class ComposerStaticInit822f5d132304674ee479a3fadeb96e2e
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '0a80d26768cd24fcdbe75bdd719255c1' => __DIR__ . '/..' . '/firephp/firephp-core/lib/FirePHPCore/fb.php',
         '15b1af2db38a640b0f1276c115031db4' => __DIR__ . '/../..' . '/helpers/myHelpers.php',
     );
 
@@ -21,17 +19,9 @@ class ComposerStaticInit822f5d132304674ee479a3fadeb96e2e
         array (
             'Tests\\' => 6,
         ),
-        'S' => 
-        array (
-            'Symfony\\Polyfill\\Mbstring\\' => 26,
-            'Symfony\\Component\\Debug\\' => 24,
-            'Symfony\\Component\\Console\\' => 26,
-        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
-            'Peridot\\Scope\\' => 14,
-            'Peridot\\' => 8,
         ),
         'E' => 
         array (
@@ -48,29 +38,9 @@ class ComposerStaticInit822f5d132304674ee479a3fadeb96e2e
         array (
             0 => __DIR__ . '/../..' . '/tests',
         ),
-        'Symfony\\Polyfill\\Mbstring\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
-        ),
-        'Symfony\\Component\\Debug\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/debug',
-        ),
-        'Symfony\\Component\\Console\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/console',
-        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
-        ),
-        'Peridot\\Scope\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/peridot-php/peridot-scope/src',
-        ),
-        'Peridot\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/peridot-php/peridot/src',
         ),
         'Ejercicios\\' => 
         array (
@@ -78,30 +48,11 @@ class ComposerStaticInit822f5d132304674ee479a3fadeb96e2e
         ),
     );
 
-    public static $prefixesPsr0 = array (
-        'E' => 
-        array (
-            'Evenement' => 
-            array (
-                0 => __DIR__ . '/..' . '/evenement/evenement/src',
-            ),
-        ),
-    );
-
-    public static $classMap = array (
-        'FB' => __DIR__ . '/..' . '/firephp/firephp-core/lib/FirePHPCore/fb.php',
-        'FirePHP' => __DIR__ . '/..' . '/firephp/firephp-core/lib/FirePHPCore/FirePHP.class.php',
-        'FirePHP_TestWrapper' => __DIR__ . '/..' . '/firephp/firephp-core/lib/FirePHPCore/FirePHP_TestWrapper.class.php',
-        'PHP_Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit822f5d132304674ee479a3fadeb96e2e::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit822f5d132304674ee479a3fadeb96e2e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit822f5d132304674ee479a3fadeb96e2e::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit822f5d132304674ee479a3fadeb96e2e::$classMap;
 
         }, null, ClassLoader::class);
     }

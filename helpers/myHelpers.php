@@ -52,3 +52,7 @@ function calculadora(string $simbolo,int $operando1, int $operando2):string
     }
     return realizaOperacion($operacion,$simbolo,$operando1,$operando2);
 }
+function dd($var){
+    var_dump($var);
+    exit();
+}

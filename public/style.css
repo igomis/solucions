@@ -1,0 +1,43 @@
+body {
+	margin: 0;
+	background: #D8BB94;
+	text-align: center;
+	padding-bottom: 30px;
+}
+h1 {
+	background: black; 
+	color: white;
+	text-align: center;
+	margin: 0;
+	padding: 15px 0;
+}
+h2 {
+	text-decoration: underline;
+}
+input[type="submit"], input[type="reset"] {
+	color: black;
+	background: white;
+	border: 1px solid;
+	padding: 5px 25px;
+	font-weight: bold;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+input[type="submit"]:hover, input[type="reset"]:hover {
+	color: white;
+	background: black;
+	cursor: pointer;
+}
+table {
+    margin: 20px auto;
+    border: 1px solid;
+}
+table td {
+    border: 1px solid;
+}
+form {
+    background: #b5966cad;
+    width: 50%;
+    float: left;
+    padding-bottom: 25px;
+}
