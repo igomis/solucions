@@ -14,8 +14,13 @@ else
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $zonas[$_POST['zona']]->sellTickets((int)$_POST['entradas']);
-    $_SESSION['zonas'] = serialize($zonas);
+    try {
+        $zonas[$_POST['zona']]->sellTickets((int)$_POST['entradas']);
+        $_SESSION['zonas'] = serialize($zonas);
+    }catch (Exception $e){
+        echo $e->getMessage();
+    }
+
 }
 
 $titulo = "Exercisi d'entrades";
