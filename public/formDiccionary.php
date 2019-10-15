@@ -3,13 +3,16 @@ require dirname(__FILE__) . "/../vendor/autoload.php";
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
-$paraules = ['mesa'=>'table','lapiz'=>'pencil','chica'=>'girl','chico'=>'boy','telefono'=>'telephon'];
+session_start();
+if (isset($_SESSION['diccionari'])) $paraules = $_SESSION['diccionari'];
+else $paraules = array();
 ?>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $spanish = htmlspecialchars(trim($_POST["spanish"]));
     $english = htmlspecialchars(trim($_POST["english"]));
-    $paraules[$spanish] = $english;
+    $paraules[$english] = $spanish;
+    $_SESSION['diccionari'] = $paraules;
 }
 ?>
 <!DOCTYPE html>
@@ -38,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <form method="POST">
             <p><strong>Introduce una palabra en español y su traducción en inglés.</strong></p>
-            <input type="text" name="spanish" placeholder="Palabra en español" required/> =
+            <input type="text" name="spanish" placeholder="Palabra en valencia" required/> =
             <input type="text" name="english" placeholder="Palabra en inglés" required/>
             <input type="submit" name="submit"/><br>
         </form>
@@ -48,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <table>
             <tr>
-                <th>Castellano</th><th>Inglés</th>
+                <th>Valencià</th><th>Anglés</th>
             </tr>
             <?php
             foreach ($paraules as $castellano => $angles)
@@ -62,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             ?>
         </table>
+        <a href="diccionari.php" >Tornar al joc</a>
     </body>
 
 </html>

@@ -11,6 +11,7 @@ namespace Ejercicios;
 
 class Form
 {
+    protected $title;
     protected $components;
 
 
@@ -18,9 +19,10 @@ class Form
      * Form constructor.
      * @param $components
      */
-    public function __construct($components)
+    public function __construct($components,$title='Enviar')
     {
         $this->components = $components;
+        $this->title = $title;
     }
 
     /**
@@ -45,7 +47,7 @@ class Form
         foreach ($this->components as $component){
             $html .= $component->render()."<br>";
         }
-        echo $html.'<input type="submit" name="submit"/></form>';
+        echo $html.'<input type="submit" name="'.$this->title.'" value="'.$this->title.'"/></form>';
     }
 
 

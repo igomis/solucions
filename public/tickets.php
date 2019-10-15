@@ -13,6 +13,9 @@ else
     $zonas = array(new Zona('Pista',1000),new Zona('Tribuna',200),new Zona('VIP',25));
 
 
+$titulo = "Exercisi d'entrades";
+include_once "./../view/cabecera.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $zonas[$_POST['zona']]->sellTickets((int)$_POST['entradas']);
@@ -23,7 +26,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }
 
-$titulo = "Exercisi d'entrades";
-include_once "./../view/cabecera.php";
 include_once "./../view/tickets.php";
 include_once "./../view/pie.php";

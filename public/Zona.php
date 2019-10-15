@@ -35,7 +35,7 @@ class Zona
      */
     public function setTickets($tickets)
     {
-        if ($tickets > $this->tickets) throw new Exception('No hi ha entrades');
+        if ($tickets < 0) throw new Exception('No hi ha entrades');
         $this->tickets = $tickets;
     }
 
