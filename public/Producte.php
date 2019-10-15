@@ -8,6 +8,7 @@
 
 class Producte
 {
+    private $id;
     private $desc;
     private $preu;
     private $imatge;
@@ -19,8 +20,9 @@ class Producte
      * @param $preu
      * @param $imatge
      */
-    public function __construct($desc, $preu, $unitats, $imatge)
+    public function __construct($id,$desc, $preu, $unitats, $imatge)
     {
+        $this->id = $id;
         $this->desc = $desc;
         $this->preu = $preu;
         $this->imatge = $imatge;
@@ -28,9 +30,13 @@ class Producte
 
     }
 
-    public function render()
+    public function render($estaCistella)
     {
         $producte = $this;
         include "./../view/producte.php";
+    }
+
+    public function getId(){
+        return $this->id;
     }
 }
