@@ -47,8 +47,8 @@ class Form
         foreach ($this->components as $component){
             $html .= $component->render()."<br>";
         }
-        echo $html.'<input type="submit" name="'.$this->title.'" value="'.$this->title.'"/></form>';
-    }
+        return $html.'<input type="submit" name="'.$this->title.'" value="'.$this->title.'"/></form>';
+        }
 
 
 }

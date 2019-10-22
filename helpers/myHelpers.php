@@ -70,3 +70,7 @@ function shuffle_assoc(&$array) {
 
     return true;
 }
+
+function str_random($length = 10) {
+    return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+}
