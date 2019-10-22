@@ -48,7 +48,7 @@ class Form
             $html .= $component->render()."<br>";
         }
         return $html.'<input type="submit" name="'.$this->title.'" value="'.$this->title.'"/></form>';
-        }
+    }
 
 
 }

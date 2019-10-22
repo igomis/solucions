@@ -35,5 +35,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $titulo = "Registre";
 include_once "./../view/cabecera.php";
 if (isset($error)) echo"<p class='error'>$error</p>";
-$formulari->render();
+echo $formulari->render();
 include_once "./../view/pie.php";
