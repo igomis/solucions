@@ -53,15 +53,21 @@ class Menu
     {
         $menu = $this;
         $class = 'justify-content-center';
-        include('./../view/menu.php');
+        return $this->show($menu,$class);
+
     }
 
     public function showVert()
     {
         $menu = $this;
         $class = 'flex-column';
-        include('./../view/menu.php');
+        return $this->show($menu,$class);
     }
 
-
+    private function show($menu,$class){
+        $contenido = "<nav class='navbar'><ul class='nav $class'><li class=\"nav-item active\"><a class=\"nav-link\" href='#'>$menu->title</a></li>";
+        foreach ($menu->options as $option)
+            $contenido .= "<li class='nav-item'><a class='nav-link' href='".$option['link']."'>".$option['show']."</a></li>";
+         return $contenido;
+    }
 }

@@ -21,7 +21,7 @@ $menu->setOptions(['show'=>'Persona','link'=>'formPeople.php']);
 $menu->setOptions(['show'=>'Factorial','link'=>'factorial.php']);
 $menu->setOptions(['show'=>'Tickets','link'=>'tickets.php']);
 
-$menu->showHorit();
+echo $menu->showHorit();
 
 $factura = new Factura(1000,'12/12/2002',0.04,1);
 $factura->imprime();
